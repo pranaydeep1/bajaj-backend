@@ -34,8 +34,10 @@ app.use(express.json());
 app.get('/bfhl', (req, res) => {
     res.send('Welcome to the API');
 });
+const cors = require('cors');
+app.use(cors());
 
-app.post('/bfhl/endpoint', (req, res) => {
+app.post('/bfhl', (req, res) => {
     const data = req.body;
     const response = {
         status: 'success',
@@ -48,7 +50,7 @@ app.post('/bfhl/endpoint', (req, res) => {
     res.json(response);
 });
 
-app.get('/bfhl/endpoint', (req, res) => {
+app.get('/bfhl/', (req, res) => {
     res.json({ operation_code: '12345' });
 });
 
